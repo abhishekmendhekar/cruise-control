@@ -161,7 +161,9 @@ public class MetricSampleAggregator<G, E extends Entity<G>> extends LongGenerati
             _windowRollingLock.unlock();
           }
         });
-    LOG.trace("Adding sample {} to window index {}", sample, windowIndex);
+    if (LOG.isTraceEnabled()) {
+      LOG.trace("Adding sample {} to window index {}", sample, windowIndex);
+    }
     rawMetricValues.addSample(sample, windowIndex, _metricDef);
     long generation = _generation.get();
     if (newWindowRolledOut || windowIndex != _currentWindowIndex) {

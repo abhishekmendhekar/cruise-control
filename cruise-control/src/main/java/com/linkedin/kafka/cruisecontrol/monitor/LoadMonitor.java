@@ -721,10 +721,10 @@ public class LoadMonitor {
    */
   private class SensorUpdater implements Runnable {
     // The interval for sensor value update.
-    static final long UPDATE_INTERVAL_MS = 30000;
+    static final long UPDATE_INTERVAL_MS = 600_000;
     // The maximum time allowed to make an update. If the sensor value cannot be updated in time, the sensor value
     // will be invalidated.
-    static final long UPDATE_TIMEOUT_MS = 10 * UPDATE_INTERVAL_MS;
+    static final long UPDATE_TIMEOUT_MS = 3 * UPDATE_INTERVAL_MS;
 
     @Override
     public void run() {

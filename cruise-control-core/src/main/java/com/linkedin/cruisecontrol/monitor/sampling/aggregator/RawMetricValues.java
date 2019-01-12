@@ -106,8 +106,10 @@ public class RawMetricValues extends WindowIndexedArrays {
         }
       }
     }
-    LOG.trace("Added metric sample {} to window index {}, actual index is {}, current count : {}",
-              sample, windowIndex, idx, _counts[idx]);
+    if (LOG.isTraceEnabled()) {
+      LOG.trace("Added metric sample {} to window index {}, actual index is {}, current count : {}",
+                sample, windowIndex, idx, _counts[idx]);
+    }
   }
 
   /**
